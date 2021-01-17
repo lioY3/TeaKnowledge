@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_headlines"
+        android:icon="@drawable/ic_headlines_black_24dp"
+        android:title="@string/title_headlines" />
+
+    <item
+        android:id="@+id/navigation_knowledge"
+        android:icon="@drawable/ic_knowledge_black_24dp"
+        android:title="@string/title_knowledge" />
+
+    <item
+        android:id="@+id/navigation_consulting"
+        android:icon="@drawable/ic_consulting_black_24dp"
+        android:title="@string/title_consulting" />
+
+    <item
+        android:id="@+id/navigation_business"
+        android:icon="@drawable/ic_business_black_24dp"
+        android:title="@string/title_business" />
+
+    <item
+        android:id="@+id/navigation_chart"
+        android:icon="@drawable/ic_chart_black_24dp"
+        android:title="@string/title_chart" />
+
+</menu>

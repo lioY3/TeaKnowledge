@@ -13,4 +13,10 @@
     <string name="menu_version">版本信息</string>
     <string name="menu_feedback">意见反馈</string>
     <string name="menu_history">浏览历史</string>
+
+    <string name="title_headlines">头条</string>
+    <string name="title_knowledge">知道</string>
+    <string name="title_consulting">咨询</string>
+    <string name="title_business">经营</string>
+    <string name="title_chart">数据</string>
 </resources>
