@@ -17,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.example.teaknowledge.R;
 import com.example.teaknowledge.bean.Goods;
 import com.example.teaknowledge.bean.News;
@@ -28,6 +27,7 @@ import com.example.teaknowledge.ui.knowledge.KnowledgeAdapter;
 import com.example.teaknowledge.utils.AppUtils;
 import com.example.teaknowledge.utils.HistoryUtils;
 import com.example.teaknowledge.utils.StringUtils;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
 
@@ -46,7 +46,7 @@ public class HistoryFragment extends Fragment {
         final View root = inflater.inflate(R.layout.fragment_history, container, false);
         final Context context = root.getContext();
         listHistory = HistoryUtils.getHistory();
-        final HistoryAdapter historyAdapter = new HistoryAdapter(context,listHistory);
+        final HistoryAdapter historyAdapter = new HistoryAdapter(context, listHistory);
         final ListView listView = root.findViewById(R.id.list_history_results);
         historyAdapter.setOnClickListener1(new HeadlinesAdapter.onClickListener() {
             @Override
@@ -56,8 +56,8 @@ public class HistoryFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         View dialogImageView = LayoutInflater.from(context)
-                                .inflate(R.layout.dialog_img,null,false);
-                        final Dialog dialog = new Dialog(context,android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+                                .inflate(R.layout.dialog_img, null, false);
+                        final Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
                         dialog.setContentView(dialogImageView);
                         ImageView imageView = dialogImageView.findViewById(R.id.dialog_img);
                         imageView.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +67,7 @@ public class HistoryFragment extends Fragment {
                             }
                         });
                         ImageLoader imgLoader = ImageLoader.getInstance();
-                        imgLoader.displayImage(listNews.get(pos).getImg(),imageView);
+                        imgLoader.displayImage(listNews.get(pos).getImg(), imageView);
                         dialog.show();
                     }
                 });
@@ -92,18 +92,16 @@ public class HistoryFragment extends Fragment {
                         );
 
 //                      添加到内存中的历史记录
-                        if (HistoryUtils.getHistory().contains(listNews.get(pos)))
-                        {
+                        if (HistoryUtils.getHistory().contains(listNews.get(pos))) {
                             System.out.println("contains");
-                        }else
-                        {
+                        } else {
                             HistoryUtils.getHistory().add(listNews.get(pos));
                             historyAdapter.notifyDataSetChanged();
                         }
 
 
                         ImageButton buttonShare = dialogView.findViewById(R.id.button_news_share);
-                        ImageButton buttonFavorite = dialogView.findViewById(R.id.button_news_favorite);
+//                        ImageButton buttonFavorite = dialogView.findViewById(R.id.button_news_favorite);
                         buttonShare.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -126,7 +124,7 @@ public class HistoryFragment extends Fragment {
 
             @Override
             public void onClick(View view, final List<Goods> listGoods, final int pos) {
-                final KnowledgeAdapter knowledgeAdapter = new KnowledgeAdapter(context,listGoods);
+                final KnowledgeAdapter knowledgeAdapter = new KnowledgeAdapter(context, listGoods);
                 ImageButton buttonShare = view.findViewById(R.id.button_article_share);
                 ImageButton buttonRead = view.findViewById(R.id.button_article_read);
 
@@ -163,11 +161,9 @@ public class HistoryFragment extends Fragment {
                         );
 
                         // 添加到内存中的历史记录
-                        if (HistoryUtils.getHistory().contains(listGoods.get(pos)))
-                        {
+                        if (HistoryUtils.getHistory().contains(listGoods.get(pos))) {
                             System.out.println("contains");
-                        }else
-                        {
+                        } else {
                             HistoryUtils.getHistory().add(listGoods.get(pos));
                         }
 

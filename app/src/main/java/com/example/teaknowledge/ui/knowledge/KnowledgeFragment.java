@@ -104,12 +104,10 @@ public class KnowledgeFragment extends Fragment {
                         );
 
                         // 添加到内存中的历史记录
-                        if (HistoryUtils.getHistory().contains(listGoods.get(pos)))
-                        {
+                        if (HistoryUtils.getHistory().contains(listGoods.get(pos))) {
                             System.out.println("contains");
-                        }else
-                        {
-                            HistoryUtils.getHistory().add(0,listGoods.get(pos));
+                        } else {
+                            HistoryUtils.getHistory().add(0, listGoods.get(pos));
                         }
 
                         dialog.show();

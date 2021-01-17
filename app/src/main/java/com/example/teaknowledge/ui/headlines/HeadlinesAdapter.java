@@ -15,7 +15,6 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
-
 import org.xutils.DbManager;
 import org.xutils.ex.DbException;
 
@@ -23,25 +22,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HeadlinesAdapter extends BaseAdapter {
-    public interface onClickListener {
-        void onClick(View view, List<News> listNews, final int pos);
-    }
-
+    private static final String TAG_DEBUG = "DEBUG";
     private Context context;
     private LayoutInflater mInflater;
     private List<News> listNews;
     private onClickListener mOnClickListener = null;
     private ImageLoader imageLoader = ImageLoader.getInstance();
-    private static final String TAG_DEBUG = "DEBUG";
-
-    public onClickListener getmOnClickListener() {
-        return mOnClickListener;
-    }
 
     public HeadlinesAdapter(final Context context, List<News> listNews) {
         this.context = context;
         this.listNews = listNews;
         this.mInflater = LayoutInflater.from(context);
+    }
+
+    public onClickListener getmOnClickListener() {
+        return mOnClickListener;
     }
 
     @Override
@@ -117,6 +112,10 @@ public class HeadlinesAdapter extends BaseAdapter {
 
     public void setOnClickListener(onClickListener mOnClickListener) {
         this.mOnClickListener = mOnClickListener;
+    }
+
+    public interface onClickListener {
+        void onClick(View view, List<News> listNews, final int pos);
     }
 
     public final class ViewHolder {

@@ -17,9 +17,9 @@
             android:hint="@string/edit_text_keyword_hint"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="@+id/button_search"
             app:layout_constraintEnd_toStartOf="@+id/button_search"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/button_search" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/button_search"

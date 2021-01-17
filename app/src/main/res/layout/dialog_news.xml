@@ -1,112 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="right"
         android:layout_marginTop="16dp"
-        >
+        android:gravity="right"
+        android:orientation="horizontal">
+
         <ImageButton
             android:id="@+id/button_news_share"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            app:srcCompat="@drawable/ic_drawer_share_black_24dp"
             android:contentDescription="@string/button_goods_share_desc"
+            app:srcCompat="@drawable/ic_drawer_share_black_24dp"
             tools:ignore="VectorDrawableCompat" />
 
-        <ImageButton
-            android:id="@+id/button_news_favorite"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            app:srcCompat="@drawable/ic_favorite_border_black_24dp"
-            android:contentDescription="@string/button_goods_favorite_desc"
-            tools:ignore="VectorDrawableCompat" />
+        <!--        <ImageButton-->
+        <!--            android:id="@+id/button_news_favorite"-->
+        <!--            android:layout_width="40dp"-->
+        <!--            android:layout_height="40dp"-->
+        <!--            android:layout_marginEnd="8dp"-->
+        <!--            android:layout_marginRight="8dp"-->
+        <!--            android:contentDescription="@string/button_goods_favorite_desc"-->
+        <!--            app:srcCompat="@drawable/ic_favorite_border_black_24dp"-->
+        <!--            tools:ignore="VectorDrawableCompat" />-->
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="2dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:orientation="horizontal">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="4"
             android:text="@string/dlg_news_title"
-            android:layout_weight="4"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
+
         <TextView
+            android:id="@+id/dlg_news_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/dlg_news_title"
-            android:text="title"
-            android:gravity="center_horizontal"
             android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="title"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         android:orientation="horizontal">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/dlg_news_date"
             android:layout_weight="4"
-            android:textSize="16sp"/>
+            android:text="@string/dlg_news_date"
+            android:textSize="16sp" />
+
         <TextView
+            android:id="@+id/dlg_news_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/dlg_news_date"
-            android:text="date"
-            android:gravity="center_horizontal"
             android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="date"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="30dp"
         android:orientation="horizontal">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/dlg_news_content"
             android:layout_weight="4"
-            android:textSize="16sp"/>
+            android:text="@string/dlg_news_content"
+            android:textSize="16sp" />
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
+
             <TextView
+                android:id="@+id/dlg_news_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dlg_news_content"
-                android:text="content"
                 android:gravity="center_horizontal"
-                android:textSize="16sp"/>
+                android:text="content"
+                android:textSize="16sp" />
         </ScrollView>
     </LinearLayout>
 

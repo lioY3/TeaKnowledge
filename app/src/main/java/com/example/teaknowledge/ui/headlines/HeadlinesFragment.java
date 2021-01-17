@@ -17,13 +17,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.example.teaknowledge.R;
 import com.example.teaknowledge.bean.News;
 import com.example.teaknowledge.db.DbHelper;
 import com.example.teaknowledge.utils.AppUtils;
 import com.example.teaknowledge.utils.HistoryUtils;
 import com.example.teaknowledge.utils.StringUtils;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.xutils.DbManager;
 import org.xutils.ex.DbException;
@@ -48,8 +48,8 @@ public class HeadlinesFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         View dialogImageView = LayoutInflater.from(context)
-                                .inflate(R.layout.dialog_img,null,false);
-                        final Dialog dialog = new Dialog(context,android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+                                .inflate(R.layout.dialog_img, null, false);
+                        final Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
                         dialog.setContentView(dialogImageView);
                         ImageView imageView = dialogImageView.findViewById(R.id.dialog_img);
                         imageView.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +59,7 @@ public class HeadlinesFragment extends Fragment {
                             }
                         });
                         ImageLoader imgLoader = ImageLoader.getInstance();
-                        imgLoader.displayImage(listNews.get(pos).getImg(),imageView);
+                        imgLoader.displayImage(listNews.get(pos).getImg(), imageView);
                         dialog.show();
                     }
                 });
@@ -78,30 +78,28 @@ public class HeadlinesFragment extends Fragment {
                         TextView textNewsContent = dialogView.findViewById(R.id.dlg_news_content);
                         textNewsTitle.setText(listNews.get(i).getTitle());
                         textNewsDate.setText(listNews.get(i).getDate());
-        //                 用replace将数据库字符串中的\n转换成回车符，实现文本换行
+                        //                 用replace将数据库字符串中的\n转换成回车符，实现文本换行
                         textNewsContent.setText(
                                 StringUtils.replaceSeparator(listNews.get(i).getContent())
                         );
-        //                 添加到内存中的历史记录
-                        if (HistoryUtils.getHistory().contains(listNews.get(i)))
-                        {
+                        //                 添加到内存中的历史记录
+                        if (HistoryUtils.getHistory().contains(listNews.get(i))) {
                             System.out.println("contains");
-                        }else
-                        {
-                            HistoryUtils.getHistory().add(0,listNews.get(i));
+                        } else {
+                            HistoryUtils.getHistory().add(0, listNews.get(i));
                         }
 
                         ImageButton buttonShare = dialogView.findViewById(R.id.button_news_share);
-                        ImageButton buttonFavorite = dialogView.findViewById(R.id.button_news_favorite);
+//                        ImageButton buttonFavorite = dialogView.findViewById(R.id.button_news_favorite);
                         buttonShare.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 startActivity(AppUtils.getShareTextIntent(
                                         "请选择分享应用",
-                                String.format("来自茶知道的头条分享：\n《%s》:%s",
-                                        listNews.get(i).getTitle(),
-                                        listNews.get(i).getUrl()
-                                )
+                                        String.format("来自茶知道的头条分享：\n《%s》:%s",
+                                                listNews.get(i).getTitle(),
+                                                listNews.get(i).getUrl()
+                                        )
                                 ));
                             }
                         });

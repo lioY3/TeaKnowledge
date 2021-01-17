@@ -1,12 +1,8 @@
 package com.example.teaknowledge.db;
 
-import android.util.Log;
-
 import org.xutils.DbManager;
 import org.xutils.ex.DbException;
 import org.xutils.x;
-
-import static android.content.ContentValues.TAG;
 
 public class DbHelper {
     private static final DbManager.DaoConfig daoConfig = new DbManager.DaoConfig()

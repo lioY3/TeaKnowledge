@@ -10,23 +10,24 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.example.teaknowledge.R;
 import com.example.teaknowledge.bean.Goods;
 import com.example.teaknowledge.bean.News;
 import com.example.teaknowledge.bean.TeaInfo;
 import com.example.teaknowledge.ui.GoodsAdapter;
 import com.example.teaknowledge.ui.headlines.HeadlinesAdapter;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class HistoryAdapter extends BaseAdapter {
 
+    private static final String TAG_DEBUG = "DEBUG";
+    private static final int HISTORY_NEWS = 0;
+    private static final int HISTORY_GOODS = 1;
     private Context context;
     private LayoutInflater mInflater;
     private List<TeaInfo> listHistory;
@@ -35,9 +36,6 @@ public class HistoryAdapter extends BaseAdapter {
     private ImageLoader imageLoader = ImageLoader.getInstance();
     private List<News> listNews = new ArrayList<>();
     private List<Goods> listGoods = new ArrayList<>();
-    private static final String TAG_DEBUG = "DEBUG";
-    private static final int HISTORY_NEWS = 0;
-    private static final int HISTORY_GOODS = 1;
 
     public HistoryAdapter(Context context, List<TeaInfo> listHistory) {
         this.context = context;
@@ -74,18 +72,16 @@ public class HistoryAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolderNews viewHolderNews = null;
         ViewHolderGoods viewHolderGoods = null;
-        for (TeaInfo teaInfo:listHistory)
-        {
-            if(teaInfo.type == 0)
-                listNews.add((News)teaInfo);
-            else if(teaInfo.type == 1)
-                listGoods.add((Goods)teaInfo);
+        for (TeaInfo teaInfo : listHistory) {
+            if (teaInfo.type == 0)
+                listNews.add((News) teaInfo);
+            else if (teaInfo.type == 1)
+                listGoods.add((Goods) teaInfo);
         }
 //        Collections.reverse(listNews);
 //        Collections.reverse(listGoods);
         int type = getItemViewType(i);
-        if(type == 0)
-        {
+        if (type == 0) {
             if (view == null) {
                 viewHolderNews = new ViewHolderNews();
                 view = mInflater.inflate(R.layout.list_item_news, null);
@@ -96,8 +92,8 @@ public class HistoryAdapter extends BaseAdapter {
             } else {
                 viewHolderNews = (ViewHolderNews) view.getTag();
             }
-            viewHolderNews.textViewTitle.setText(((News)(listHistory.get(i))).getTitle());
-            String imgUrl = ((News)(listHistory.get(i))).getImg();
+            viewHolderNews.textViewTitle.setText(((News) (listHistory.get(i))).getTitle());
+            String imgUrl = ((News) (listHistory.get(i))).getImg();
             imageLoader.displayImage(imgUrl, viewHolderNews.imageView, new ImageLoadingListener() {
                 @Override
                 public void onLoadingStarted(String imageUri, View view) {
@@ -119,13 +115,12 @@ public class HistoryAdapter extends BaseAdapter {
                     System.out.println("img cancel");
                 }
             });
-            viewHolderNews.textViewDate.setText(((News)(listHistory.get(i))).getDate());
+            viewHolderNews.textViewDate.setText(((News) (listHistory.get(i))).getDate());
 
             if (mOnClickListener1 != null) {
                 mOnClickListener1.onClick(view, listNews, i);
             }
-        }else if(type == 1)
-        {
+        } else if (type == 1) {
             if (view == null) {
                 viewHolderGoods = new ViewHolderGoods();
                 view = mInflater.inflate(R.layout.list_item_article, null);
@@ -136,8 +131,8 @@ public class HistoryAdapter extends BaseAdapter {
             } else {
                 viewHolderGoods = (ViewHolderGoods) view.getTag();
             }
-            viewHolderGoods.textViewName.setText(((Goods)(listHistory.get(i))).getName());
-            viewHolderGoods.textViewYear.setText(String.valueOf(((Goods)(listHistory.get(i))).getYear()));
+            viewHolderGoods.textViewName.setText(((Goods) (listHistory.get(i))).getName());
+            viewHolderGoods.textViewYear.setText(String.valueOf(((Goods) (listHistory.get(i))).getYear()));
 
             if (mOnClickListener2 != null) {
                 mOnClickListener2.onClick(view, listGoods, i);
@@ -145,6 +140,14 @@ public class HistoryAdapter extends BaseAdapter {
         }
         notifyDataSetChanged();
         return view;
+    }
+
+    public void setOnClickListener1(HeadlinesAdapter.onClickListener mOnClickListener) {
+        this.mOnClickListener1 = mOnClickListener;
+    }
+
+    public void setOnClickListener2(GoodsAdapter.onClickListener mOnClickListener) {
+        this.mOnClickListener2 = mOnClickListener;
     }
 
     public final class ViewHolderNews {
@@ -157,13 +160,5 @@ public class HistoryAdapter extends BaseAdapter {
         public TextView textViewName;
         public TextView textViewYear;
         public ImageButton imageButtonShare;
-    }
-
-    public void setOnClickListener1(HeadlinesAdapter.onClickListener mOnClickListener) {
-        this.mOnClickListener1 = mOnClickListener;
-    }
-
-    public void setOnClickListener2(GoodsAdapter.onClickListener mOnClickListener) {
-        this.mOnClickListener2 = mOnClickListener;
     }
 }

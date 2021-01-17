@@ -13,6 +13,7 @@
             android:id="@+id/edit_text_feedback"
             android:layout_width="0dp"
             android:layout_height="500dp"
+            android:autofillHints=""
             android:ems="10"
             android:gravity="start|top"
             android:hint="@string/edit_text_feedback_hint"
@@ -20,8 +21,7 @@
             android:singleLine="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_text_feedback"
-            android:autofillHints="" />
+            app:layout_constraintTop_toBottomOf="@id/edit_text_feedback" />
 
         <Button
             android:id="@+id/button_feedback"

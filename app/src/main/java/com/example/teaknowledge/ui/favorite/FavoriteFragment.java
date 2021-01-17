@@ -42,7 +42,7 @@ public class FavoriteFragment extends Fragment {
             public void onClick(View view, final List<Goods> listGoods, final int pos) {
                 ImageButton buttonShare = view.findViewById(R.id.button_article_share);
                 ImageButton buttonRead = view.findViewById(R.id.button_article_read);
-                ImageButton buttonFavorite = view.findViewById(R.id.button_goods_favorite);
+//                ImageButton buttonFavorite = view.findViewById(R.id.button_goods_favorite);
 
                 buttonShare.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -57,33 +57,33 @@ public class FavoriteFragment extends Fragment {
                     }
                 });
 
-                buttonFavorite.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        DbManager db = DbHelper.getDbManager();
-                        if (db != null) {
-                            try {
-                                Goods goods = listGoods.get(pos);
-                                if (goods.getIsFavorite() != 0) {
-                                    goods.setIsFavorite(0);
-                                    db.saveOrUpdate(goods);
-                                } else {
-                                    goods.setIsFavorite(1);
-                                    db.saveOrUpdate(goods);
-                                }
+//                buttonFavorite.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        DbManager db = DbHelper.getDbManager();
+//                        if (db != null) {
+//                            try {
+//                                Goods goods = listGoods.get(pos);
+//                                if (goods.getIsFavorite() != 0) {
+//                                    goods.setIsFavorite(0);
+//                                    db.saveOrUpdate(goods);
+//                                } else {
+//                                    goods.setIsFavorite(1);
+//                                    db.saveOrUpdate(goods);
+//                                }
 //                                goodsAdapter.updateFromDatabseForFavorite(db);
 //                                goodsAdapter.notifyDataSetChanged();
-                            } catch (DbException e) {
-                                e.printStackTrace();
-                                Toast.makeText(context, "数据库操作错误", Toast.LENGTH_SHORT)
-                                        .show();
-                            }
-                        } else {
-                            Toast.makeText(context, "数据库连接错误", Toast.LENGTH_SHORT)
-                                    .show();
-                        }
-                    }
-                });
+//                            } catch (DbException e) {
+//                                e.printStackTrace();
+//                                Toast.makeText(context, "数据库操作错误", Toast.LENGTH_SHORT)
+//                                        .show();
+//                            }
+//                        } else {
+//                            Toast.makeText(context, "数据库连接错误", Toast.LENGTH_SHORT)
+//                                    .show();
+//                        }
+//                    }
+//                });
 
                 buttonRead.setOnClickListener(new View.OnClickListener() {
                     @Override

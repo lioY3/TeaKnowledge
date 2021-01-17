@@ -20,6 +20,8 @@ public class News extends TeaInfo {
 
     @Column(name = "img")
     private String img;
+    @Column(name = "url")
+    private String url;
 
     public News() {
         this.type = 0;
@@ -32,9 +34,6 @@ public class News extends TeaInfo {
     public void setUrl(String url) {
         this.url = url;
     }
-
-    @Column(name = "url")
-    private String url;
 
     public int getId() {
         return id;
