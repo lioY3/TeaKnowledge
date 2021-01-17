@@ -19,6 +19,7 @@ import com.example.teaknowledge.bean.Goods;
 import com.example.teaknowledge.db.DbHelper;
 import com.example.teaknowledge.utils.AppUtils;
 import com.example.teaknowledge.utils.HistoryUtils;
+import com.example.teaknowledge.utils.SharedPreferencesUtils;
 import com.example.teaknowledge.utils.StringUtils;
 
 import org.xutils.DbManager;
@@ -108,6 +109,7 @@ public class KnowledgeFragment extends Fragment {
                             System.out.println("contains");
                         } else {
                             HistoryUtils.getHistory().add(0, listGoods.get(pos));
+                            SharedPreferencesUtils.putListData("history", HistoryUtils.getHistory());
                         }
 
                         dialog.show();
