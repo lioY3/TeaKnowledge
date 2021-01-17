@@ -1,7 +1,10 @@
 package com.example.teaknowledge.ui.history;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,12 +14,21 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.teaknowledge.R;
+import com.example.teaknowledge.bean.Goods;
+import com.example.teaknowledge.ui.GoodsAdapter;
+import com.example.teaknowledge.utils.AppUtils;
+import com.example.teaknowledge.utils.HistoryUtils;
+import com.example.teaknowledge.utils.StringUtils;
+
+import java.util.List;
 
 public class HistoryFragment extends Fragment {
 
-    private HistoryViewModel mViewModel;
 
     public static HistoryFragment newInstance() {
         return new HistoryFragment();
@@ -25,14 +37,60 @@ public class HistoryFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_history, container, false);
+
+        final View root = inflater.inflate(R.layout.fragment_history, container, false);
+        final Context context = root.getContext();
+
+        GoodsAdapter goodsAdapter = new GoodsAdapter(context, HistoryUtils.getHistory());
+        goodsAdapter.setOnClickListener(new GoodsAdapter.onClickListener() {
+            @Override
+            public void onClick(View view, final List<Goods> listGoods, final int pos) {
+                ImageButton buttonShare = view.findViewById(R.id.button_article_share);
+                ImageButton buttonRead = view.findViewById(R.id.button_article_read);
+
+                buttonShare.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(AppUtils.getShareTextIntent(
+                                "请选择分享应用",
+                                String.format("名称：%s\n年份：%s\n描述：%s",
+                                        listGoods.get(pos).getName(),
+                                        String.valueOf(listGoods.get(pos).getYear()),
+                                        StringUtils.replaceSeparator(listGoods.get(pos).getDesc()))
+                        ));
+                    }
+                });
+
+                buttonRead.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        View dialogView = LayoutInflater.from(context)
+                                .inflate(R.layout.dialog_goods, null, false);
+                        final AlertDialog dialog = new AlertDialog.Builder(context)
+                                .setView(dialogView)
+                                .create();
+
+                        TextView textGoodsTitle = dialogView.findViewById(R.id.text_goods_title);
+                        TextView textGoodsYear = dialogView.findViewById(R.id.text_article_year);
+                        TextView textGoodsDesc = dialogView.findViewById(R.id.text_goods_desc);
+                        textGoodsTitle.setText(listGoods.get(pos).getName());
+                        textGoodsYear.setText(String.valueOf(listGoods.get(pos).getYear()));
+                        // 用replace将数据库字符串中的\n转换成回车符，实现文本换行
+                        textGoodsDesc.setText(
+                                StringUtils.replaceSeparator(listGoods.get(pos).getDesc())
+                        );
+
+                        dialog.show();
+                    }
+                });
+            }
+        });
+
+        final ListView listView = root.findViewById(R.id.list_history_results);
+        listView.setAdapter(goodsAdapter);
+
+        return root;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(HistoryViewModel.class);
-        // TODO: Use the ViewModel
-    }
 
 }

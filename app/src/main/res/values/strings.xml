@@ -19,4 +19,17 @@
     <string name="title_consulting">咨询</string>
     <string name="title_business">经营</string>
     <string name="title_chart">数据</string>
+
+    <string name="goods_name">标题</string>
+    <string name="goods_year">年份</string>
+    <string name="goods_desc">详细信息</string>
+    <string name="button_goods_share_desc">分享按钮</string>
+    <string name="button_goods_favorite_desc">收藏按钮</string>
+    <string name="item_title">标题</string>
+    <string name="item_subtitle">副标题</string>
+    <string name="button_goods_read_desc">阅读按钮</string>
+    <string name="button_search">搜索</string>
+    <string name="edit_text_keyword_hint">请输入搜索关键字</string>
+    <string name="button_feedback_text">我要反馈</string>
+    <string name="edit_text_feedback_hint">请在此处输入要反馈的内容</string>
 </resources>
