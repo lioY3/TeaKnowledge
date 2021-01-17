@@ -32,4 +32,7 @@
     <string name="edit_text_keyword_hint">请输入搜索关键字</string>
     <string name="button_feedback_text">我要反馈</string>
     <string name="edit_text_feedback_hint">请在此处输入要反馈的内容</string>
+    <string name="dlg_news_title">标题</string>
+    <string name="dlg_news_date">日期</string>
+    <string name="dlg_news_content">内容</string>
 </resources>

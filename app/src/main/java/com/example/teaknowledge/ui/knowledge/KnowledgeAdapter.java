@@ -24,7 +24,7 @@ public class KnowledgeAdapter extends BaseAdapter {
     private KnowledgeAdapter.onClickListener mOnClickListener = null;
     private List<Goods> listGoods;
 
-    KnowledgeAdapter(Context context, List<Goods> listGoods) {
+    public KnowledgeAdapter(Context context, List<Goods> listGoods) {
         this.context = context;
         this.listGoods = listGoods;
         this.mInflater = LayoutInflater.from(context);
