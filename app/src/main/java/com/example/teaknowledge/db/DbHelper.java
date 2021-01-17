@@ -11,7 +11,7 @@ import static android.content.ContentValues.TAG;
 public class DbHelper {
     private static final DbManager.DaoConfig daoConfig = new DbManager.DaoConfig()
             .setDbName("database.db")
-            .setDbVersion(3);
+            .setDbVersion(1);
     private static DbManager db;
 
     public static DbManager getDbManager() {
