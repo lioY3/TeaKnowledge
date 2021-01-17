@@ -1,21 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <lecho.lib.hellocharts.view.LineChartView
-        android:id="@+id/chart_sales"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/DataTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="中国茶叶行业产销量及企业经营情况等分析"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1.茶叶行业产销量\n\n        茶起源于中国，盛行于世界。中国是生产茶叶大国，2018年中国茶叶产量为261.04万吨，2019年中国茶叶产量为277.72万吨，较2018年增加了16.68万吨，同比增长106.4%。\n" />
+
+                <lecho.lib.hellocharts.view.ColumnChartView
+                    android:id="@+id/chart_sales1"
+                    android:layout_width="match_parent"
+                    android:layout_height="261dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="112dp"
+                    android:text="        中国不仅是生产茶叶大国，更是茶叶消费大国；中国茶叶的销量不断上升，2019年中国茶叶销量达到202.56万吨，较2018年增加了11.51万吨，同比增长了6%。随着人民生活质量的提升，预计未来销量将继续上升。\n" />
+
+                <lecho.lib.hellocharts.view.ColumnChartView
+                    android:id="@+id/chart_sales2"
+                    android:layout_width="match_parent"
+                    android:layout_height="261dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="        2010-2016年中国茶叶市场成交额不断上升，2017年首次出现下滑，随后2018年再次上升，2018年茶叶市场成交额为296.92亿元，同比增长16.48%，预计2019年中国茶叶市场成交额将达到318.9亿元。\n" />
+
+                <lecho.lib.hellocharts.view.ColumnChartView
+                    android:id="@+id/chart_sales3"
+                    android:layout_width="match_parent"
+                    android:layout_height="261dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2.主要企业经营现状\n\n        茗皇天然、茶乾坤、恒福股份、京东农业、白龙茶业、龙生茶业、松萝茶业、雅安茶厂是集茶叶种植、生产、加工、研发、销售、文化推广于一体，在福建、云南、广西、湖南、浙江等地建有多家大中型生产企业和原料基地，是中国茶叶行业中重要的企业。\n\n        2016-2018年松萝茶业企业经营收入在八大企业排名第一，2019年则是茗皇天然企业经营收入排名第一；2019年茗皇天然、茶乾坤、恒福股份、京东农业、白龙茶业、龙生茶业、松萝茶业、雅安茶厂经营收入分别为1.78亿元、1.18亿元、0.69亿元、0.41亿元、0.1亿元、0.62亿元、1.75亿元、0.28亿元。\n" />
+
+                <lecho.lib.hellocharts.view.ColumnChartView
+                    android:id="@+id/chart_sales4"
+                    android:layout_width="match_parent"
+                    android:layout_height="261dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

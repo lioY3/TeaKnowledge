@@ -12,18 +12,15 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.teaknowledge.utils.AppUtils;
 import com.example.teaknowledge.utils.ImageLoaderUtil;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
-import com.example.teaknowledge.utils.AppUtils;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private BottomNavigationView bottomNavView;
-    private NavigationView drawerNavView;
-    private NavController navController;
-    DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         bottomNavView = findViewById(R.id.buttom_nav_view);
-        drawerNavView = findViewById(R.id.drawer_nav_view);
-        drawer = findViewById(R.id.drawer_layout);
+        NavigationView drawerNavView = findViewById(R.id.drawer_nav_view);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -45,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.navigation_business, R.id.navigation_chart)
                 .setDrawerLayout(drawer)
                 .build();
-        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(bottomNavView, navController);
         NavigationUI.setupWithNavController(drawerNavView, navController);
