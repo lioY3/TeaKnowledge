@@ -12,13 +12,13 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.teaknowledge.utils.AppUtils;
+import com.example.teaknowledge.utils.ImageLoaderUtil;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.example.teaknowledge.utils.AppUtils;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
     private AppBarConfiguration mAppBarConfiguration;
     private BottomNavigationView bottomNavView;
     private NavigationView drawerNavView;
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         Context context = getApplicationContext();
         AppUtils.initDatabase(context);
-
+        ImageLoaderUtil.initImageLoader(context);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

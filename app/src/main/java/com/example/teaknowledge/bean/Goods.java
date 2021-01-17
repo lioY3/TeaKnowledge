@@ -4,7 +4,8 @@ import org.xutils.db.annotation.Column;
 import org.xutils.db.annotation.Table;
 
 @Table(name = "goods")
-public class Goods {
+public class Goods extends TeaInfo {
+
     @Column(name = "id", isId = true)
     private int id;
 
@@ -19,6 +20,10 @@ public class Goods {
 
     @Column(name = "favorite")
     private int isFavorite;
+
+    public Goods() {
+        this.type = 1;
+    }
 
     public int getId() {
         return id;
@@ -58,5 +63,9 @@ public class Goods {
 
     public void setIsFavorite(int isFavorite) {
         this.isFavorite = isFavorite;
+    }
+
+    public int getType() {
+        return this.type;
     }
 }
