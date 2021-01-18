@@ -27,8 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Context context = getApplicationContext();
-        AppUtils.initDatabase(context);
-        ImageLoaderUtil.initImageLoader(context);
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

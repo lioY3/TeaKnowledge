@@ -26,6 +26,7 @@ import com.example.teaknowledge.ui.headlines.HeadlinesAdapter;
 import com.example.teaknowledge.ui.knowledge.KnowledgeAdapter;
 import com.example.teaknowledge.utils.AppUtils;
 import com.example.teaknowledge.utils.HistoryUtils;
+import com.example.teaknowledge.utils.SharedPreferencesUtils;
 import com.example.teaknowledge.utils.StringUtils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -46,6 +47,8 @@ public class HistoryFragment extends Fragment {
         final View root = inflater.inflate(R.layout.fragment_history, container, false);
         final Context context = root.getContext();
         listHistory = HistoryUtils.getHistory();
+        listHistory = SharedPreferencesUtils.getListData1("history");
+
         final HistoryAdapter historyAdapter = new HistoryAdapter(context, listHistory);
         final ListView listView = root.findViewById(R.id.list_history_results);
         historyAdapter.setOnClickListener1(new HeadlinesAdapter.onClickListener() {

@@ -11,4 +11,8 @@ public class HistoryUtils {
     public static List<TeaInfo> getHistory() {
         return listHistory;
     }
+
+    public static void setListHistory(List<TeaInfo> listHistory) {
+        HistoryUtils.listHistory = listHistory;
+    }
 }

@@ -19,9 +19,11 @@ import androidx.fragment.app.Fragment;
 
 import com.example.teaknowledge.R;
 import com.example.teaknowledge.bean.News;
+import com.example.teaknowledge.bean.TeaInfo;
 import com.example.teaknowledge.db.DbHelper;
 import com.example.teaknowledge.utils.AppUtils;
 import com.example.teaknowledge.utils.HistoryUtils;
+import com.example.teaknowledge.utils.SharedPreferencesUtils;
 import com.example.teaknowledge.utils.StringUtils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -87,6 +89,7 @@ public class HeadlinesFragment extends Fragment {
                             System.out.println("contains");
                         } else {
                             HistoryUtils.getHistory().add(0, listNews.get(i));
+                            SharedPreferencesUtils.putListData("history", HistoryUtils.getHistory());
                         }
 
                         ImageButton buttonShare = dialogView.findViewById(R.id.button_news_share);
