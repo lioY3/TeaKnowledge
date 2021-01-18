@@ -21,7 +21,8 @@
             android:layout_marginRight="8dp"
             android:contentDescription="@string/button_goods_share_desc"
             app:srcCompat="@drawable/ic_drawer_share_black_24dp"
-            tools:ignore="VectorDrawableCompat" />
+            tools:ignore="VectorDrawableCompat"
+            android:background="@android:color/transparent"/>
 
         <!--        <ImageButton-->
         <!--            android:id="@+id/button_news_favorite"-->
